@@ -1,0 +1,7 @@
+*.pyc
+*.log
+ckpt
+/data*/*
+/model*/*
+/ckpt*/*
+/result*/*
