@@ -117,9 +117,9 @@ def parse_line(line, max_len, min_len):
                 ys_tpl.append(CS[1])
         ys += ws + [RS]
         if ws[-1] in PUNCS:
-            ys_tpl[-2] = CS[3] # yun jiao
+            ys_tpl[-2] = CS[3]
         else:
-            ys_tpl[-1] = CS[3] # yun jiao
+            ys_tpl[-1] = CS[3]
         ys_tpl += [RS]
         ys_seg += [SS[si + 1] for w in ws] + [RS]
         ys_pos += [PS[len(ws) - i] for i in range(len(ws))] + [RS]

@@ -24,17 +24,17 @@ def init_model(m_path, device, vocab):
     ckpt= torch.load(m_path, map_location='cpu')
     lm_args = ckpt['args']
     lm_vocab = Vocab(vocab, min_occur_cnt=lm_args.min_occur_cnt, specials=[])
-    lm_model = BIGLM(device, lm_vocab, lm_args.embed_dim, lm_args.ff_embed_dim, lm_args.num_heads, lm_args.dropout, lm_args.layers, 0.1, lm_args.approx)
+    lm_model = BIGLM(device, lm_vocab, lm_args.embed_dim, lm_args.ff_embed_dim, lm_args.num_heads, lm_args.dropout, lm_args.layers, 0.1)
     lm_model.load_state_dict(ckpt['model'])
     lm_model = lm_model.cuda(device)
     lm_model.eval()
     return lm_model, lm_vocab, lm_args
 
-m_path = "./ckpt/epoch8_batch_7999"
+m_path = "./ckpt/epoch1_batch_999"
 lm_model, lm_vocab, lm_args = init_model(m_path, gpu, "./data/vocab.txt")
 
 
-k = 500
+k = 32
 def top_k_inc(enc, src_padding_mask, inp_ys_tpl, inp_ys_seg, inp_ys_pos, s):
     start = time.time()
     incremental_state = None
