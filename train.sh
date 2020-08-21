@@ -1,13 +1,14 @@
-CUDA_VISIBLE_DEVICES=0 \
+CUDA_VISIBLE_DEVICES=1 \
 python3 -u train.py --embed_dim 768 \
                       --ff_embed_dim 3072 \
                       --num_heads 12 \
                       --layers 12 \
                       --dropout 0.2 \
                       --train_data ./data/train.txt \
+                      --dev_data ./data/dev.txt \
                       --vocab ./data/vocab.txt \
                       --min_occur_cnt 1 \
-                      --batch_size 2 \
+                      --batch_size 32 \
                       --warmup_steps 8000 \
                       --lr 0.5 \
                       --weight_decay 0 \

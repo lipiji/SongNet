@@ -72,6 +72,8 @@ def s2xy(lines, vocab, max_len, min_len):
     data = []
     for line in lines:
         res = parse_line(line, max_len, min_len)
+        if not res:
+            continue
         data.append(res)
     return  batchify(data, vocab)
 

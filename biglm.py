@@ -7,7 +7,7 @@ from transformer import TransformerLayer, Embedding, LearnedPositionalEmbedding,
 from label_smoothing import LabelSmoothing 
 
 class BIGLM(nn.Module):
-    def __init__(self, local_rank, vocab, embed_dim, ff_embed_dim, num_heads, dropout, layers, smoothing_factor, approx):
+    def __init__(self, local_rank, vocab, embed_dim, ff_embed_dim, num_heads, dropout, layers, smoothing_factor, approx=None):
         super(BIGLM, self).__init__()
         self.vocab = vocab
         self.embed_dim = embed_dim
@@ -29,12 +29,7 @@ class BIGLM(nn.Module):
         self.dropout = dropout
         self.device = local_rank
 
-        if approx == "none":
-            self.approx = None
-        elif approx == "adaptive":
-            self.approx = nn.AdaptiveLogSoftmaxWithLoss(self.embed_dim, self.vocab.size, [10000, 20000, 200000])
-        else:
-            raise NotImplementedError("%s has not been implemented"%approx)
+        self.approx = approx
         self.reset_parameters()
 
     def reset_parameters(self):
