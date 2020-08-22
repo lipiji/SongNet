@@ -19,7 +19,7 @@ def init_seeds():
 
 #init_seeds()
 
-gpu = 0
+gpu = 1
 def init_model(m_path, device, vocab):
     ckpt= torch.load(m_path, map_location='cpu')
     lm_args = ckpt['args']
@@ -30,7 +30,7 @@ def init_model(m_path, device, vocab):
     lm_model.eval()
     return lm_model, lm_vocab, lm_args
 
-m_path = "./ckpt/epoch1_batch_999"
+m_path = "./ckpt/epoch7_batch_4999"
 lm_model, lm_vocab, lm_args = init_model(m_path, gpu, "./data/vocab.txt")
 
 

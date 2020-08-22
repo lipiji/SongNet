@@ -54,7 +54,7 @@ def rhythm_labellig(sents):
     rhys = []
     for sent in sents:
         w = sent[-1]
-        if w in PUNCS:
+        if w in PUNCS and len(sent) > 1:
             w = sent[-2]
         yunmu = lazy_pinyin(w, style=Style.FINALS)
         rhys.append(yunmu[0])
@@ -224,8 +224,9 @@ def eval(res_file, fid):
 
 tpl_macro_f1_, tpl_micro_f1_, rhy_macro_f1_, rhy_micro_f1_,  \
 macro_dist1_, micro_dist1_, macro_dist2_, micro_dist2_ = [], [], [], [], [], [], [], []
+abalation = "top-32"
 for i in range(5):
-    f_name = "./results/out" +str(i+1)+".txt"
+    f_name = "./results/"+abalation+"/out" +str(i+1)+".txt"
     if not os.path.exists(f_name):
         continue
     tpl_macro_f1, tpl_micro_f1, rhy_macro_f1, rhy_micro_f1, macro_dist1, micro_dist1, macro_dist2, micro_dist2 = eval(f_name, i + 1)
