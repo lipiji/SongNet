@@ -9,6 +9,11 @@
 - ./test.sh
 - python metrics.py
 
+### Polish
+- ./polish.sh
+
+### Download
+- Trained models for SongCi: https://drive.google.com/file/d/16A2AzuU7slf7xj2QdLcBAorUCCaCk650/view?usp=sharing
 
 #### Reference
 
