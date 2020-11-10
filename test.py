@@ -30,8 +30,8 @@ def init_model(m_path, device, vocab):
     lm_model.eval()
     return lm_model, lm_vocab, lm_args
 
-m_path = "./ckpt/epoch7_batch_4999"
-lm_model, lm_vocab, lm_args = init_model(m_path, gpu, "./data/vocab.txt")
+m_path = "./model/songci.ckpt"
+lm_model, lm_vocab, lm_args = init_model(m_path, gpu, "./model/vocab.txt")
 
 
 k = 32
