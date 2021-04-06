@@ -95,7 +95,7 @@ def top_k(enc, src_padding_mask, inp_ys_tpl, inp_ys_seg, inp_ys_pos, s):
         next_tk = []
         for i in range(len(s)):
             ctk = lm_vocab.idx2token(inp_ys_tpl[l,i].item())
-            if ctk != "<c1>":
+            if ctk != "<c1>" and ctk != "<c2>" and ctk != "<c0>":
                 next_tk.append(ctk)
                 continue
             logits = probs[len(s[i]) - 1, i]

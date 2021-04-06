@@ -20,7 +20,7 @@ def init_model(m_path, device, vocab):
     lm_model.eval()
     return lm_model, lm_vocab, lm_args
 
-m_path = "./model/tmp.ckpt"
+m_path = "./model/songci.ckpt"
 lm_model, lm_vocab, lm_args = init_model(m_path, gpu, "./model/vocab.txt")
 
 
@@ -86,7 +86,7 @@ def top_k(enc, src_padding_mask, inp_ys_tpl, inp_ys_seg, inp_ys_pos, s):
         next_tk = []
         for i in range(len(s)):
             ctk = lm_vocab.idx2token(inp_ys_tpl[l,i].item())
-            if ctk != "<c1>":
+            if ctk != "<c1>" and ctk != "<c2>" and ctk != "<c0>":
                 next_tk.append(ctk)
                 continue
             logits = probs[len(s[i]) - 1, i]
