@@ -1,4 +1,5 @@
 # SongNet
+SongNet: SongCi + Song (Lyrics) + Sonnet + etc.
 
 ```
 @inproceedings{li-etal-2020-rigid,
