@@ -6,7 +6,7 @@ PAD, UNK, BOS, EOS = '<pad>', '<unk>', '<bos>', '<eos>'
 BOC, EOC = '<boc>', '<eoc>'
 LS, RS, SP = '<s>', '</s>', ' '
 CS = ['<c-1>'] + ['<c' + str(i) + '>' for i in range(32)] # content
-SS = ['<s-1>'] + ['<s' + str(i) + '>' for i in range(512)] # segnment
+SS = ['<s-1>'] + ['<s' + str(i) + '>' for i in range(512)] # segment
 PS = ['<p-1>'] + ['<p' + str(i) + '>' for i in range(512)] # position
 TS = ['<t-1>'] + ['<t' + str(i) + '>' for i in range(32)] # other types
 
