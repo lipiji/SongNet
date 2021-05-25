@@ -35,3 +35,4 @@ SongNet: SongCi + Song (Lyrics) + Sonnet + etc.
 #### Reference
 
 - Guyu: https://github.com/lipiji/Guyu
+- Pretraining：https://github.com/lipiji/big_tpl_zh_10_base
